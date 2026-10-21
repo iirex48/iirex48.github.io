@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>سياسة الخصوصية</title>
+<title>Reflex Bot</title>
 <style>
 :root{
   box-sizing:border-box;
@@ -28,12 +28,17 @@ h2{font-size:1.1rem;margin:26px 0 6px;color:var(--accent)}
 p,li{margin:6px 0}
 ul{padding-inline-start:22px}
 [hidden]{display:none}
+
+nav{align-items:center;flex-wrap:wrap}
+nav button{margin-inline-start:auto;padding:8px 16px;border:1px solid var(--accent);border-radius:999px;background:none;color:var(--accent);font:inherit;font-weight:600;cursor:pointer}
+body[data-l="ar"] .en,body[data-l="en"] .ar{display:none}
+[dir="ltr"]{font-family:"Segoe UI",system-ui,sans-serif;line-height:1.75}
 </style>
 </head>
-<body>
+<body data-l="ar">
 <div class="wrap">
-<nav aria-label="التنقل"><a href="/terms-of-service">شروط الخدمة</a></nav>
-<article>
+<nav><a href="/terms-of-service"><span class="ar">شروط الخدمة</span><span class="en">Terms of Service</span></a><button id="lang" type="button"><span class="ar">English</span><span class="en">العربية</span></button></nav>
+<article class="ar" dir="rtl">
 <h1>سياسة الخصوصية</h1>
 <p class="date">آخر تحديث: ٢١ أكتوبر ٢٠٢٦</p>
 
@@ -67,6 +72,27 @@ ul{padding-inline-start:22px}
 <h2>التحديثات والتواصل</h2>
 <p>قد نحدّث هذه السياسة، وسيظهر تاريخ آخر تحديث أعلاها. للاستفسار راسل المطور داخل السيرفر.</p>
 </article>
+<article class="en" dir="ltr"><h1>Privacy Policy</h1>
+<p class="date">Last updated: October 21, 2026</p>
+<h2>Data we collect</h2><ul>
+<li><b>Identifiers:</b> your Discord user ID, plus the server and channel IDs needed to run commands.</li>
+<li><b>Economy data:</b> wallet and bank balances, bank level, timestamps of your last daily claim or steal attempt, and roles bought from the shop.</li>
+<li><b>AI conversations:</b> when you mention the bot, we store the last 10 messages between you and the bot to remember context.</li>
+<li><b>Moderation logs:</b> when a moderation action is taken with a stated reason (for example a ban), a log with the member, moderator and reason is posted to the server’s log channel.</li></ul>
+<p>We do not collect passwords, payment details, or personal information beyond what Discord provides to the bot.</p>
+<h2>How we use it</h2><p>To run the economy, shop, games and moderation commands, to give context-aware AI replies, and to protect the server from abuse.</p>
+<h2>Third parties</h2><p>The text of your message to the bot and recent conversation messages are sent to our AI provider (OpenAI) to generate replies, and are subject to OpenAI’s privacy policy. We do not sell your data or share it for advertising.</p>
+<h2>Storage and retention</h2><p>Data is stored in files on the bot’s server for as long as the bot operates in the server. Conversation history is limited to the last 10 messages per user.</p>
+<h2>Your rights</h2><p>You can ask the developer to delete your data, reset your account or clear your conversation history. You can avoid AI processing by not mentioning the bot.</p>
+<h2>Security</h2><p>We protect data as best we can, but no system is 100% secure, so do not share sensitive information in bot conversations.</p>
+<h2>Children</h2><p>The bot is intended for users who meet Discord’s minimum age. We do not knowingly collect data from anyone below it.</p>
+<h2>Updates and contact</h2><p>We may update this policy; the last-updated date appears at the top. For questions, message the developer in the server.</p></article>
 </div>
+<script>
+var l="ar";try{l=localStorage.getItem("lang")||"ar"}catch(e){}
+function set(x){l=x;document.body.dataset.l=x;document.documentElement.lang=x;document.documentElement.dir=x==="ar"?"rtl":"ltr";try{localStorage.setItem("lang",x)}catch(e){}}
+document.getElementById("lang").onclick=function(){set(l==="ar"?"en":"ar")};
+set(l);
+</script>
 </body>
 </html>
