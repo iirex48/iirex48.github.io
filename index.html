@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>شروط الخدمة</title>
+<title>Reflex Bot</title>
 <style>
 :root{
   box-sizing:border-box;
@@ -28,12 +28,17 @@ h2{font-size:1.1rem;margin:26px 0 6px;color:var(--accent)}
 p,li{margin:6px 0}
 ul{padding-inline-start:22px}
 [hidden]{display:none}
+
+nav{align-items:center;flex-wrap:wrap}
+nav button{margin-inline-start:auto;padding:8px 16px;border:1px solid var(--accent);border-radius:999px;background:none;color:var(--accent);font:inherit;font-weight:600;cursor:pointer}
+body[data-l="ar"] .en,body[data-l="en"] .ar{display:none}
+[dir="ltr"]{font-family:"Segoe UI",system-ui,sans-serif;line-height:1.75}
 </style>
 </head>
-<body>
+<body data-l="ar">
 <div class="wrap">
-<nav aria-label="التنقل"><a href="/privacy-policy">سياسة الخصوصية</a></nav>
-<article>
+<nav><a href="/privacy-policy"><span class="ar">سياسة الخصوصية</span><span class="en">Privacy Policy</span></a><button id="lang" type="button"><span class="ar">English</span><span class="en">العربية</span></button></nav>
+<article class="ar" dir="rtl">
 <h1>شروط الخدمة</h1>
 <p class="date">آخر تحديث: ٢١ أكتوبر ٢٠٢٦</p>
 
@@ -69,6 +74,28 @@ ul{padding-inline-start:22px}
 <h2>التعديل والتواصل</h2>
 <p>قد نعدّل هذه الشروط، واستمرارك في الاستخدام يعني قبول النسخة المحدثة. للتواصل: افتح تذكرة أو راسل المطور داخل السيرفر.</p>
 </article>
+<article class="en" dir="ltr"><h1>Terms of Service</h1>
+<p class="date">Last updated: October 21, 2026</p>
+<h2>Acceptance</h2><p>By using the bot in the server you agree to these terms. If you do not agree, stop using it.</p>
+<h2>What the bot provides</h2><p>Moderation tools (kick, ban, timeout, warnings, role management), a virtual economy (Recoin currency, bank, shop), fun games, and AI replies when the bot is mentioned.</p>
+<h2>Virtual currency</h2><ul>
+<li>Recoin is entirely virtual. It has no real-world monetary value and cannot be exchanged for real money.</li>
+<li>Staff and the developer may add, remove or reset balances in cases of abuse or exploits.</li>
+<li>The bot is not responsible for losses caused by in-game theft, technical faults or data resets.</li></ul>
+<h2>Acceptable use</h2><ul>
+<li>Exploiting bugs or automating commands to gain an advantage is prohibited.</li>
+<li>Using the bot or its AI for abuse, harassment, or content that violates Discord’s rules or the server rules is prohibited.</li>
+<li>Users must follow <a href="https://discord.com/terms" rel="noopener" style="color:var(--accent)">Discord’s Terms of Service</a>.</li></ul>
+<h2>AI replies</h2><p>AI replies are generated automatically and may be inaccurate or inappropriate. They do not represent the views of the server staff or the developer. Do not rely on them for medical, legal or financial decisions.</p>
+<h2>Moderation actions</h2><p>Moderation commands are available only to authorized staff, who may use them according to the server rules. Any user may be blocked from using the bot for violating these terms.</p>
+<h2>Disclaimer</h2><p>The bot is provided “as is”, with no guarantee of continuous availability or freedom from errors, and may change or stop at any time.</p>
+<h2>Changes and contact</h2><p>We may update these terms; continued use means you accept the updated version. To contact us, open a ticket or message the developer in the server.</p></article>
 </div>
+<script>
+var l="ar";try{l=localStorage.getItem("lang")||"ar"}catch(e){}
+function set(x){l=x;document.body.dataset.l=x;document.documentElement.lang=x;document.documentElement.dir=x==="ar"?"rtl":"ltr";try{localStorage.setItem("lang",x)}catch(e){}}
+document.getElementById("lang").onclick=function(){set(l==="ar"?"en":"ar")};
+set(l);
+</script>
 </body>
 </html>
